@@ -7,6 +7,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
+# model class for User
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer(), primary_key=True)
     username = db.Column(db.String(length=100), nullable=False)
@@ -50,6 +51,7 @@ class User(db.Model, UserMixin):
         return item_obj in self.items
 
 
+# model class for Items
 class Items(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(length=100), unique=True, nullable=False)
