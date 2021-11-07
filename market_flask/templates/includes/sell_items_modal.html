@@ -1,0 +1,46 @@
+<style>
+    .modal-content{
+        background-color: #212121
+    }
+</style>
+
+<!-- Sell Confirm -->
+<div class="modal fade" id="Modal-SellConfirm-{{ owned_item.id }}"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">
+          <!-- -->
+          {{ (owned_item.name).title() }}
+        </h5>
+        <button type="button" class="btn-close"
+                data-bs-dismiss="modal" aria-label="Close">
+          x
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          {{ selling_form.hidden_tag() }}
+
+          <h4 class="text-center">
+            Are you sure you want to sell {{(owned_item.name).upper()}} for ₹{{owned_item.price}} ?
+          </h4>
+          <br>
+          <h6 class="text-center">
+            By clicking Sell, you will put the item back on Market.
+          </h6>
+          <input id="sold_item" name="sold_item" type="hidden" value="{{ owned_item.name }}">
+          {{ selling_form.submit(class="btn btn-block btn-outline-success") }}
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-close btn-secondary"
+                data-bs-dismiss="modal" aria-label="Close">Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

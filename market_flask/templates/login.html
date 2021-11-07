@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock title %}
+
+{% block body %}
+<body class="text-center">
+    <div class="container">
+        <br>
+        <form class="form-login", method="POST">
+            {{ form.hidden_tag() }}
+            <img class="mb-4"
+                 src="https://thumb.mp-farm.com/29581674/preview.jpg" width="250" height="100">
+            <br>
+            <h1 class="h3 mb-3 font-weight-normal">
+                Please LogIn to your Account
+            </h1>
+            {{form.username.label}}
+            {{form.username(class="form-control", placeholder="User Name")}}
+            <br>
+            {{form.password.label}}
+            {{form.password(class="form-control", placeholder="Password")}}
+            <br>
+            {{form.submit(class="btn btn-lg btn-block btn-primary")}}
+            <br>
+            <div class="checkbox mb-3">
+                <h6>Do not have an Account?</h6>
+                <a href="{{ url_for('register_page') }}" class="btn btn-secondary" tabindex="-1" role="button"
+                   aria-disabled="true">Create Account</a>
+            </div>
+        </form>
+    </div>
+</body>
+
+{% endblock body %}
